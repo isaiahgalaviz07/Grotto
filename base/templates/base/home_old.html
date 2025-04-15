@@ -1,0 +1,51 @@
+<!--  Extension of the 'main.html' template -->
+{% extends 'main.html' %}
+
+<!--  The following contents below will be included 
+        where 'block content' is placed within the 'main.html' template -->
+{% block content %}
+
+<!--  Styling for Home page  -->
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+    .home-form{
+        display: block;
+    }
+</style>
+
+<!--  Home page header  -->
+<h1>Home Template</h1>
+
+<!--    Main Container of the Home page    -->
+<div class="home-container">
+
+    <!--  Search bar container  -->
+    <div>
+        {% include 'base/topics_component.html' %}
+    </div>
+
+    <!--  Room list container  -->
+    <div>
+        <!--  Include the number of all of the rooms currently available  -->
+        <h5>{{room_count}} rooms available</h5>
+        <!--  The following link leads user to the 'Create Room' page  -->
+        <a href="{% url 'Create Room' %}">Create Room</a>
+        <hr>
+
+        <!--  Container for a list that includes every room currently available  -->
+        <div>
+            {% include 'base/feed_component.html' %}
+        </div>
+    </div>
+
+    <div>
+        {% include 'base/activity_component.html' %}
+    </div>
+
+</div>
+
+
+{% endblock %}
