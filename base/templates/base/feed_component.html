@@ -5,7 +5,7 @@
     <div class="roomListRoom__header">
         <a href="{% url 'User Profile' room.host.id %}" class="roomListRoom__author">
         <div class="avatar avatar--small">
-          <img src="https://randomuser.me/api/portraits/women/11.jpg" />
+          <img src="{{room.host.avatar.url}}" />
         </div>
         <span>@{{room.host.username}}</span>
       </a>
@@ -17,6 +17,9 @@
     <!--  Details on the room id & name  -->
     <div class="roomListRoom__content">
       <a href="{% url 'Room' room.id %}">{{room.name}}</a>
+      <div>
+        <span>{{room.description}}</span>
+      </div>
     </div>
     <!--  Details on the topic name this room is associated with -->
     <div class="roomListRoom__meta">
